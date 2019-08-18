@@ -198,7 +198,7 @@
         <!--Home View Controller-->
         <scene sceneID="snN-ng-KBb">
             <objects>
-                <viewController id="cTg-J6-dKF" customClass="HomeViewController" customModule="DCFirstProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeViewController" id="cTg-J6-dKF" customClass="HomeViewController" customModule="DCFirstProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Kuw-sM-BOy">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

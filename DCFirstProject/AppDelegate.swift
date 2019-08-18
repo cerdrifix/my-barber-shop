@@ -11,7 +11,7 @@ import Firebase
 import GoogleSignIn
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, GIDSignInUIDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 
     var window: UIWindow?
     
@@ -85,15 +85,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, GIDSig
                                           lastName: user.profile.familyName,
                                           email: user.profile.email)
         
-        if(self.currentViewController is SignInViewController) {
-            (currentViewController as! SignInViewController).customerDetails = userDetails
-            currentViewController.performSegue(withIdentifier: "loginToHome", sender: self)
-        }
-        if(self.currentViewController is StartViewController) {
-            (currentViewController as! StartViewController).customerDetails = userDetails
-            currentViewController.performSegue(withIdentifier: "alreadyLoggedIn", sender: self)
-        }
-        
+        let mainStoryBoard: UIStoryboard = UIStoryboard(name:"Main", bundle:nil)
+        let protectedPage = mainStoryBoard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+        protectedPage.customerDetails = userDetails
+        let appDelegate = UIApplication.shared.delegate
+        appDelegate?.window??.rootViewController = protectedPage
         
     }
     

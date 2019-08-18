@@ -10,7 +10,7 @@ import UIKit
 import FirebaseAuth
 import GoogleSignIn
 
-class SignInViewController: UIViewController {
+class SignInViewController: UIViewController, GIDSignInUIDelegate {
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var signInButton: GIDSignInButton!
@@ -22,8 +22,7 @@ class SignInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        GIDSignIn.sharedInstance()?.delegate = appDelegate
-        GIDSignIn.sharedInstance()?.uiDelegate = appDelegate
+        GIDSignIn.sharedInstance()?.uiDelegate = self
         
         appDelegate.currentViewController = self
 
