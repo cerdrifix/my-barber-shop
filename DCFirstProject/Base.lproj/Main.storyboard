@@ -102,22 +102,29 @@
                                     <action selector="loginAction:" destination="gSy-BT-5yB" eventType="touchUpInside" id="amB-z7-Dkd"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eir-hC-E8S" customClass="GIDSignInButton">
-                                <rect key="frame" x="20" y="717" width="374" height="54"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YSk-zN-ar4">
                                 <rect key="frame" x="20" y="807" width="374" height="55"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.22537201640000001" green="0.34264656900000001" blue="0.60412263870000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.21303257349999999" green="0.40929257870000002" blue="0.68740338089999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                 <state key="normal" title="SIGN IN WITH FACEBOOK">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <color key="titleShadowColor" red="0.22537201640000001" green="0.34264656900000001" blue="0.60412263870000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" red="0.27159296799673538" green="0.41252906695972985" blue="0.73762690355329952" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="facebookLoginWithSender:" destination="gSy-BT-5yB" eventType="touchUpInside" id="Lj3-Ot-Qhc"/>
+                                    <action selector="facebookLoginWithSender:" destination="gSy-BT-5yB" eventType="touchUpInside" id="dgW-49-t6G"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vqG-O2-3am">
+                                <rect key="frame" x="20" y="733" width="374" height="55"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.87578827140000004" green="0.28980770709999998" blue="0.19642049070000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                <state key="normal" title="SIGN IN WITH GOOGLE">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="googleLoginWithSender:" destination="gSy-BT-5yB" eventType="touchUpInside" id="YDW-8P-B56"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -127,7 +134,6 @@
                     <connections>
                         <outlet property="email" destination="ZJQ-9g-KV3" id="PQv-Kd-Aj4"/>
                         <outlet property="password" destination="CFs-fJ-luI" id="ReF-IX-z4T"/>
-                        <outlet property="signInButton" destination="eir-hC-E8S" id="ffl-ou-p4T"/>
                         <segue destination="cTg-J6-dKF" kind="show" identifier="loginToHome" id="aro-of-ZrY"/>
                     </connections>
                 </viewController>

@@ -31,18 +31,6 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate {
         
     }
     
-    // Facebook methods
-    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
-        if let error = error {
-            print(error.localizedDescription)
-            return
-        }
-        // ...
-    }
-    func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
-        
-    }
-    
     @IBAction func loginAction(_ sender: Any) {
         
         Auth.auth().signIn(withEmail: email.text!, password: password.text!) { (user, error) in
@@ -58,6 +46,10 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate {
             }
         }
         
+    }
+    
+    @IBAction func googleLogin(sender: AnyObject) {
+        GIDSignIn.sharedInstance().signIn()
     }
     
     //Facebook login
