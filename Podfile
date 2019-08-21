@@ -10,5 +10,8 @@ target 'DCFirstProject' do
   pod 'Firebase/Analytics'
   pod 'Firebase/Auth'
   pod 'GoogleSignIn'
+  pod 'FacebookCore'
+  pod 'FacebookLogin'
+  pod 'FacebookShare'
 
 end

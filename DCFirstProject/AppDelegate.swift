@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import GoogleSignIn
+import FBSDKCoreKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
@@ -23,10 +24,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         
         FirebaseApp.configure()
         
+        // Google Sign In
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
-        
         GIDSignIn.sharedInstance()?.signInSilently()
+        
+        // Facebook sign in
+        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
         return true
     }
@@ -56,12 +60,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     @available(iOS 9.0, *)
     func application(_ application: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any])
         -> Bool {
+            
+            // Google
             return GIDSignIn.sharedInstance().handle(url,
                                                      sourceApplication:options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String,
                                                      annotation: [:])
     }
     
     func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+        // Facebook
+        let handled = FBSDKApplicationDelegate.sharedInstance()?.application(application, open: url, sourceApplication: sourceApplication, annotation: annotation)
+        
+        if handled! { return handled! }
+        
+        // Google
         return GIDSignIn.sharedInstance().handle(url,
                                                  sourceApplication: sourceApplication,
                                                  annotation: annotation)
@@ -105,16 +117,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     
     func sign(_ signIn: GIDSignIn!, dismiss viewController: UIViewController!) {
         currentViewController.dismiss(animated: true, completion: nil)
-    }
-    
-    func getTopMostViewController() -> UIViewController? {
-        var topMostViewController = UIApplication.shared.keyWindow?.rootViewController
-        
-        while let presentedViewController = topMostViewController?.presentedViewController {
-            topMostViewController = presentedViewController
-        }
-        
-        return topMostViewController
     }
 
 }
